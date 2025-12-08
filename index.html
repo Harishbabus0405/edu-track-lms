@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EduTrack LMS</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">EduTrack</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#courses">Courses</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Learn Anytime, Anywhere</h1>
+            <p>Simple LMS for students and teachers to manage courses easily.</p>
+            <div class="hero-buttons">
+                <a href="login.html" class="btn primary">Login as Student</a>
+                <a href="login.html" class="btn secondary">Login as Teacher</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="courses" class="courses-section">
+        <h2>Popular Courses</h2>
+        <div class="courses-grid">
+            <div class="course-card">
+                <h3>Web Development Basics</h3>
+                <p>HTML, CSS, JavaScript from scratch.</p>
+                <button class="btn small" onclick="openCourse('web-dev')">View Details</button>
+            </div>
+            <div class="course-card">
+                <h3>Python for Beginners</h3>
+                <p>Start your programming journey.</p>
+                <button class="btn small" onclick="openCourse('python-beginners')">View Details</button>
+            </div>
+            <div class="course-card">
+                <h3>Data Structures</h3>
+                <p>Learn arrays, stacks, queues & more.</p>
+                <button class="btn small" onclick="openCourse('data-structures')">View Details</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 EduTrack LMS. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

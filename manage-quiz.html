@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Manage Quiz - EduTrack LMS</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">EduTrack</div>
+        <nav>
+            <a href="teacher-dashboard.html">Dashboard</a>
+            <a href="profile.html">My Profile</a>
+            <a href="index.html" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <section class="dashboard-header">
+            <h2>Manage Quiz</h2>
+            <p id="quizCourseTitle" class="muted">Course: -</p>
+            <p id="quizCourseSubtitle" class="muted small"></p>
+        </section>
+
+        <!-- Existing questions -->
+        <section class="dashboard-section">
+            <div class="card">
+                <h3>Existing Questions</h3>
+                <ul id="quizQuestionsTeacher" class="list">
+                    <!-- JS la load aagum -->
+                </ul>
+                <p id="quizEmptyMsg" class="muted small"></p>
+            </div>
+        </section>
+
+        <!-- Add new question -->
+        <section class="dashboard-section">
+            <div class="card">
+                <h3>Add New Question</h3>
+                <form id="addQuizForm" class="form">
+                    <label for="quizQuestionText">Question</label>
+                    <textarea id="quizQuestionText" rows="2" placeholder="Enter the question..." required></textarea>
+
+                    <label>Options</label>
+                    <input id="quizOpt1" type="text" placeholder="Option 1" required />
+                    <input id="quizOpt2" type="text" placeholder="Option 2" required />
+                    <input id="quizOpt3" type="text" placeholder="Option 3" required />
+                    <input id="quizOpt4" type="text" placeholder="Option 4" required />
+
+                    <label for="quizCorrectIndex">Correct Option</label>
+                    <select id="quizCorrectIndex" required>
+            <option value="0">Option 1</option>
+            <option value="1">Option 2</option>
+            <option value="2">Option 3</option>
+            <option value="3">Option 4</option>
+          </select>
+
+                    <button type="submit" class="btn primary full-width" style="margin-top:8px;">
+            Add Question
+          </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 EduTrack LMS.</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

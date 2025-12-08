@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - EduTrack LMS</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">EduTrack</div>
+        <nav>
+            <a href="admin-dashboard.html">Admin Dashboard</a>
+            <a href="index.html" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <section class="dashboard-header">
+            <h2>Admin Dashboard</h2>
+            <p class="muted">Manage users and view statistics.</p>
+        </section>
+
+        <!-- STATS CARD -->
+        <section class="dashboard-section">
+            <div class="card">
+                <h3>Overview</h3>
+                <div class="profile-details">
+                    <p><strong>Total Users:</strong> <span id="totalUsers">0</span></p>
+                    <p><strong>Students:</strong> <span id="totalStudents">0</span></p>
+                    <p><strong>Teachers:</strong> <span id="totalTeachers">0</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USERS TABLE -->
+        <section class="dashboard-section">
+            <div class="card">
+                <h3>Registered Users</h3>
+                <div class="table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Joined</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- JS la auto load aagum -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 EduTrack LMS.</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

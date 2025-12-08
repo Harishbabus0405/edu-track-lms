@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard - EduTrack LMS</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">EduTrack</div>
+        <nav>
+            <a href="student-dashboard.html">Dashboard</a>
+            <a href="profile.html">My Profile</a>
+            <a href="index.html" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <section class="dashboard-header">
+            <h2>Welcome, <span id="welcomeName">Student</span> 👋</h2>
+            <p class="muted">Here are your enrolled courses and learning progress.</p>
+        </section>
+
+        <!-- My Courses = Enrolled courses -->
+        <section class="dashboard-section">
+            <div class="section-header">
+                <h3>My Courses</h3>
+                <p class="muted small">Courses you are currently learning.</p>
+            </div>
+            <div id="myCourses" class="courses-grid">
+                <!-- JS la auto render aagum -->
+            </div>
+        </section>
+
+        <!-- All Courses = Available catalog -->
+        <section class="dashboard-section">
+            <div class="section-header">
+                <h3>All Courses</h3>
+                <p class="muted small">Browse other available courses.</p>
+            </div>
+            <div id="allCourses" class="courses-grid">
+                <!-- JS la auto render aagum -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 EduTrack LMS.</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

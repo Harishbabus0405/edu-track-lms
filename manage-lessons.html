@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Lessons - EduTrack LMS</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">EduTrack</div>
+        <nav>
+            <a href="teacher-dashboard.html">Dashboard</a>
+            <a href="profile.html">My Profile</a>
+            <a href="index.html" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <section class="dashboard-header">
+            <h2>Manage Lessons</h2>
+            <p id="manageCourseTitle" class="muted">Course: -</p>
+            <p id="manageCourseSubtitle" class="muted small"></p>
+        </section>
+
+        <!-- Existing lessons -->
+        <section class="dashboard-section">
+            <div class="section-header">
+                <h3>Existing Lessons</h3>
+            </div>
+            <div class="card">
+                <ul id="lessonsListTeacher" class="list">
+                    <!-- JS la load aagum -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Add new lesson -->
+        <section class="dashboard-section">
+            <div class="section-header">
+                <h3>Add New Lesson</h3>
+                <p class="muted small">Add title, description and optional link (video / PDF / any URL).</p>
+            </div>
+            <div class="card">
+                <form id="addLessonForm" class="form">
+                    <label for="lessonTitle">Lesson Title</label>
+                    <input id="lessonTitle" type="text" placeholder="e.g. Introduction to Python" required>
+
+                    <label for="lessonDesc">Description</label>
+                    <textarea id="lessonDesc" rows="3" placeholder="Short description..." required></textarea>
+
+                    <label for="lessonUrl">Content URL (optional)</label>
+                    <input id="lessonUrl" type="url" placeholder="https://... (YouTube, PDF, etc.)">
+
+                    <button type="submit" class="btn primary full-width">Add Lesson</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 EduTrack LMS.</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

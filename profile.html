@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile - EduTrack LMS</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">EduTrack</div>
+        <nav>
+            <a href="student-dashboard.html">Dashboard</a>
+            <a href="profile.html">My Profile</a>
+            <a href="index.html" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <section class="dashboard-header">
+            <h2>My Profile</h2>
+            <p class="muted">View your account information and details.</p>
+        </section>
+
+        <section class="dashboard-section">
+            <div class="card">
+                <h3 id="profileName">Your Name</h3>
+                <p id="profileShort" class="muted small"></p>
+
+                <div class="profile-details">
+                    <p><strong>Role:</strong> <span id="profileRole">-</span></p>
+                    <p><strong>Email:</strong> <span id="profileEmail">-</span></p>
+                    <p><strong>Joined:</strong> <span id="profileJoined">-</span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 EduTrack LMS.</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Course Details - EduTrack LMS</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">EduTrack</div>
+        <nav>
+            <a href="student-dashboard.html">Dashboard</a>
+            <a href="index.html" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <section class="dashboard-header">
+            <h2 id="courseTitle">Course Title</h2>
+            <p id="courseSubtitle" class="muted">Short description about this course.</p>
+        </section>
+
+        <!-- LESSONS + RESOURCES -->
+        <section class="dashboard-section two-column">
+            <div class="card">
+                <h3>Lessons</h3>
+                <ul id="lessonsList" class="list"></ul>
+                <p id="lessonStatus" class="muted small"></p>
+            </div>
+
+            <div class="card">
+                <h3>Resources</h3>
+                <ul id="resourcesList" class="list"></ul>
+                <button class="btn primary full-width" onclick="markCourseCompleted()">
+                     Mark as Completed
+                </button>
+                <p id="courseStatus" class="muted small"></p>
+
+                <button class="btn secondary full-width" id="enrollToggleBtn" style="margin-top:8px;">
+                    Enroll in this course
+                </button>
+                <p id="enrollStatus" class="muted small"></p>
+
+
+                <!-- Certificate Button -->
+                <a href="certificate.html" class="btn secondary full-width" style="margin-top:10px; text-align:center;">
+          View Certificate
+        </a>
+            </div>
+        </section>
+
+        <!-- QUIZ SECTION -->
+        <section class="dashboard-section">
+            <div class="card">
+                <h3>Quiz</h3>
+                <p id="quizSubtitle" class="muted small">
+                    Answer the questions below and submit.
+                </p>
+
+                <div id="quizQuestions" class="quiz"></div>
+
+                <button class="btn secondary full-width" id="submitQuizBtn">Submit Quiz</button>
+
+                <p id="quizResult" class="muted small" style="margin-top: 8px;"></p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 EduTrack LMS.</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

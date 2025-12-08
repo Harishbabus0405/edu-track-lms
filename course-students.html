@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Course Students - EduTrack LMS</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">EduTrack</div>
+        <nav>
+            <a href="teacher-dashboard.html">Dashboard</a>
+            <a href="profile.html">My Profile</a>
+            <a href="index.html" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <section class="dashboard-header">
+            <h2>Enrolled Students</h2>
+            <p id="courseStudentsTitle" class="muted">Course: -</p>
+            <p id="courseStudentsSubtitle" class="muted small"></p>
+        </section>
+
+        <section class="dashboard-section">
+            <div class="card">
+                <h3>Students List</h3>
+                <div class="table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Student Name</th>
+                                <th>Email</th>
+                                <th>Progress</th>
+                                <th>Quiz Score</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="courseStudentsBody">
+                            <!-- JS la load aagum -->
+                        </tbody>
+                    </table>
+                </div>
+                <p id="courseStudentsEmpty" class="muted small" style="margin-top:8px;"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 EduTrack LMS.</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

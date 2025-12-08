@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register - EduTrack LMS</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">EduTrack</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main class="center-page">
+        <div class="card">
+            <h2>Create Account</h2>
+            <p class="muted">Register as student or teacher.</p>
+
+            <form id="registerForm" class="form">
+                <label for="regName">Full Name</label>
+                <input id="regName" type="text" placeholder="Your name" required>
+
+                <label for="regRole">Register as</label>
+                <select id="regRole" required>
+          <option value="">Select role</option>
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+        </select>
+
+                <label for="regEmail">Email</label>
+                <input id="regEmail" type="email" placeholder="you@example.com" required>
+
+                <label for="regPassword">Password</label>
+                <input id="regPassword" type="password" placeholder="Minimum 6 characters" required>
+
+                <button type="submit" class="btn primary full-width">Register</button>
+            </form>
+
+            <p id="registerMsg" class="muted small"></p>
+
+            <p class="muted small" style="margin-top: 8px;">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 EduTrack LMS.</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

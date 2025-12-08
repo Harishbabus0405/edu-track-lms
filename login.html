@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login - EduTrack LMS</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">EduTrack</div>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+    <main class="center-page">
+        <div class="card">
+            <h2>Login</h2>
+            <p class="muted">Select your role and login to continue.</p>
+
+            <form id="loginForm" class="form">
+                <label for="role">Login as</label>
+                <select id="role" required>
+                        <option value="">Select role</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="admin">Admin</option>  <!-- IMPORTANT: value = "admin" (small) -->
+                </select>
+
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="you@example.com" required>
+
+                <label for="password">Password</label>
+                <input id="password" type="password" placeholder="••••••••" required>
+
+                <button type="submit" class="btn primary full-width">Login</button>
+            </form>
+
+            <p class="muted small">
+                * Demo project – only registered users can login. Use Register page first.
+            </p>
+
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 EduTrack LMS.</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher Dashboard - EduTrack LMS</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">EduTrack</div>
+        <nav>
+            <a href="teacher-dashboard.html">Dashboard</a>
+            <a href="profile.html">My Profile</a>
+            <a href="index.html" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <section class="dashboard-header">
+            <h2>Welcome, <span id="welcomeName">Teacher</span> 👋</h2>
+            <p class="muted">Create and manage your courses here.</p>
+        </section>
+
+        <!-- My Created Courses (no All Courses here) -->
+        <section class="dashboard-section">
+            <div class="section-header">
+                <h3>My Created Courses</h3>
+                <p class="muted small">Manage the courses you are teaching.</p>
+            </div>
+            <div id="teacherCourses" class="courses-grid">
+                <!-- JS la auto render -->
+            </div>
+        </section>
+
+        <!-- Create New Course -->
+        <section class="dashboard-section">
+            <div class="section-header">
+                <h3>Create New Course</h3>
+                <p class="muted small">Add a new course for your students. (Demo only)</p>
+            </div>
+            <div class="card">
+                <form id="createCourseForm" class="form">
+                    <label for="courseTitle">Course Title</label>
+                    <input id="courseTitle" type="text" placeholder="e.g. Java Basics" required>
+
+                    <label for="courseLevel">Level</label>
+                    <select id="courseLevel" required>
+            <option value="">Select level</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+
+                    <label for="courseDesc">Short Description</label>
+                    <textarea id="courseDesc" rows="3" placeholder="Description..." required></textarea>
+
+                    <button type="submit" class="btn primary full-width">Create Course (Demo)</button>
+                </form>
+                <p id="createCourseMsg" class="muted small"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 EduTrack LMS.</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
