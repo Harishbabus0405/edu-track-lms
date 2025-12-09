@@ -34,6 +34,37 @@
             </div>
         </section>
 
+        <!-- CREATE TEACHER FORM -->
+        <section class="dashboard-section">
+            <div class="card">
+                <h3>Add New Teacher</h3>
+                <form id="addTeacherForm" class="form-group">
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label>Teacher Name:</label>
+                            <input type="text" id="teacherName" placeholder="Enter teacher name" required>
+                        </div>
+                        <div class="form-col">
+                            <label>Email:</label>
+                            <input type="email" id="teacherEmail" placeholder="Enter teacher email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label>Password:</label>
+                            <input type="password" id="teacherPassword" placeholder="Enter password" required>
+                        </div>
+                        <div class="form-col">
+                            <label>Confirm Password:</label>
+                            <input type="password" id="teacherPasswordConfirm" placeholder="Confirm password" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Teacher</button>
+                    <span id="addTeacherMessage" style="margin-left: 10px; display: none;"></span>
+                </form>
+            </div>
+        </section>
+
         <!-- USERS TABLE -->
         <section class="dashboard-section">
             <div class="card">

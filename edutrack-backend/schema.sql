@@ -99,6 +99,16 @@ CREATE TABLE IF NOT EXISTS course_progress (
     UNIQUE KEY unique_progress (student_email, course_id)
 );
 
+-- Insert sample users (Admin and Teachers)
+-- Passwords are hashed with bcrypt
+-- All passwords are: 'password123'
+INSERT INTO users (name, email, password, role, created_at) VALUES
+('Admin User', 'admin@gmail.com', '$2b$12$KIXxPfxrHYczfIVc0rK5FO8N7Oj8VXvFxv9nQ6K.C8Sxz7F8K8Kne', 'admin', NOW()),
+('Teacher One', 'teacher1@gmail.com', '$2b$12$KIXxPfxrHYczfIVc0rK5FO8N7Oj8VXvFxv9nQ6K.C8Sxz7F8K8Kne', 'teacher', NOW()),
+('Teacher Two', 'teacher2@gmail.com', '$2b$12$KIXxPfxrHYczfIVc0rK5FO8N7Oj8VXvFxv9nQ6K.C8Sxz7F8K8Kne', 'teacher', NOW()),
+('Teacher Three', 'teacher3@gmail.com', '$2b$12$KIXxPfxrHYczfIVc0rK5FO8N7Oj8VXvFxv9nQ6K.C8Sxz7F8K8Kne', 'teacher', NOW()),
+('Student Demo', 'student@gmail.com', '$2b$12$KIXxPfxrHYczfIVc0rK5FO8N7Oj8VXvFxv9nQ6K.C8Sxz7F8K8Kne', 'student', NOW());
+
 -- Insert sample courses
 INSERT INTO courses (id, title, description, level, created_by) VALUES
 ('web-dev', 'Web Development Basics', 'Learn HTML, CSS and basic JavaScript.', 'Beginner', NULL),

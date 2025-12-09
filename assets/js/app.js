@@ -411,18 +411,12 @@ function initRegisterPage() {
         e.preventDefault();
 
         const name = document.getElementById("regName").value.trim();
-        const role = document.getElementById("regRole").value;
         const email = document.getElementById("regEmail").value.trim();
         const password = document.getElementById("regPassword").value;
+        const role = "student"; // Always register as student
 
-        if (!name || !role || !email || !password) {
+        if (!name || !email || !password) {
             msg.textContent = "Please fill all fields.";
-            msg.style.color = "red";
-            return;
-        }
-
-        if (role === "admin") {
-            msg.textContent = "You cannot register as Admin.";
             msg.style.color = "red";
             return;
         }
@@ -799,6 +793,7 @@ function initAdminDashboard() {
     const totalStudentsEl = document.getElementById("totalStudents");
     const totalTeachersEl = document.getElementById("totalTeachers");
     const usersTableBody = document.getElementById("usersTableBody");
+    const addTeacherForm = document.getElementById("addTeacherForm");
 
     if (!totalUsersEl || !totalStudentsEl || !totalTeachersEl || !usersTableBody) return;
 
@@ -807,28 +802,121 @@ function initAdminDashboard() {
         return;
     }
 
-    const users = loadUsers();
-    const totalUsers = users.length;
-    const totalStudents = users.filter((u) => u.role === "student").length;
-    const totalTeachers = users.filter((u) => u.role === "teacher").length;
+    // Load and display users
+    loadAndDisplayUsers();
 
-    totalUsersEl.textContent = totalUsers;
-    totalStudentsEl.textContent = totalStudents;
-    totalTeachersEl.textContent = totalTeachers;
+    // Handle add teacher form
+    if (addTeacherForm) {
+        addTeacherForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById("teacherName").value.trim();
+            const email = document.getElementById("teacherEmail").value.trim();
+            const password = document.getElementById("teacherPassword").value;
+            const passwordConfirm = document.getElementById("teacherPasswordConfirm").value;
+            const messageEl = document.getElementById("addTeacherMessage");
 
-    usersTableBody.innerHTML = users
-        .map(
-            (u, index) => `
-      <tr>
-        <td>${index + 1}</td>
-        <td>${u.name}</td>
-        <td>${u.email}</td>
-        <td>${u.role}</td>
-        <td>${u.createdAt ? new Date(u.createdAt).toLocaleDateString() : "-"}</td>
-      </tr>
-    `
-        )
-        .join("");
+            if (password !== passwordConfirm) {
+                messageEl.textContent = "Passwords do not match!";
+                messageEl.style.color = "red";
+                messageEl.style.display = "inline";
+                return;
+            }
+
+            try {
+                messageEl.textContent = "Creating teacher...";
+                messageEl.style.color = "blue";
+                messageEl.style.display = "inline";
+
+                const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        password,
+                        role: "teacher"
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    messageEl.textContent = "Teacher created successfully!";
+                    messageEl.style.color = "green";
+                    
+                    // Reset form
+                    addTeacherForm.reset();
+                    
+                    // Refresh users list
+                    setTimeout(() => {
+                        loadAndDisplayUsers();
+                        messageEl.style.display = "none";
+                    }, 1500);
+                } else {
+                    messageEl.textContent = data.message || "Error creating teacher";
+                    messageEl.style.color = "red";
+                }
+            } catch (error) {
+                messageEl.textContent = "Error: " + error.message;
+                messageEl.style.color = "red";
+            }
+        });
+    }
+
+    function loadAndDisplayUsers() {
+        fetch(`${API_BASE_URL}/api/users`)
+            .then(res => res.json())
+            .then(users => {
+                const totalUsers = users.length;
+                const totalStudents = users.filter((u) => u.role === "student").length;
+                const totalTeachers = users.filter((u) => u.role === "teacher").length;
+
+                totalUsersEl.textContent = totalUsers;
+                totalStudentsEl.textContent = totalStudents;
+                totalTeachersEl.textContent = totalTeachers;
+
+                usersTableBody.innerHTML = users
+                    .map(
+                        (u, index) => `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${u.name}</td>
+                        <td>${u.email}</td>
+                        <td>${u.role}</td>
+                        <td>${u.created_at ? new Date(u.created_at).toLocaleDateString() : "-"}</td>
+                    </tr>
+                `
+                    )
+                    .join("");
+            })
+            .catch(err => {
+                console.error("Error loading users:", err);
+                // Fallback to localStorage
+                const users = loadUsers();
+                const totalUsers = users.length;
+                const totalStudents = users.filter((u) => u.role === "student").length;
+                const totalTeachers = users.filter((u) => u.role === "teacher").length;
+
+                totalUsersEl.textContent = totalUsers;
+                totalStudentsEl.textContent = totalStudents;
+                totalTeachersEl.textContent = totalTeachers;
+
+                usersTableBody.innerHTML = users
+                    .map(
+                        (u, index) => `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${u.name}</td>
+                        <td>${u.email}</td>
+                        <td>${u.role}</td>
+                        <td>${u.createdAt ? new Date(u.createdAt).toLocaleDateString() : "-"}</td>
+                    </tr>
+                `
+                    )
+                    .join("");
+            });
+    }
 }
 
 // ====== COURSE HANDLING ======
