@@ -103,11 +103,11 @@ CREATE TABLE IF NOT EXISTS course_progress (
 -- Passwords are hashed with bcrypt
 -- All passwords are: 'password123'
 INSERT INTO users (name, email, password, role, created_at) VALUES
-('Admin User', 'admin@gmail.com', '$2b$12$KIXxPfxrHYczfIVc0rK5FO8N7Oj8VXvFxv9nQ6K.C8Sxz7F8K8Kne', 'admin', NOW()),
-('Teacher One', 'teacher1@gmail.com', '$2b$12$KIXxPfxrHYczfIVc0rK5FO8N7Oj8VXvFxv9nQ6K.C8Sxz7F8K8Kne', 'teacher', NOW()),
-('Teacher Two', 'teacher2@gmail.com', '$2b$12$KIXxPfxrHYczfIVc0rK5FO8N7Oj8VXvFxv9nQ6K.C8Sxz7F8K8Kne', 'teacher', NOW()),
-('Teacher Three', 'teacher3@gmail.com', '$2b$12$KIXxPfxrHYczfIVc0rK5FO8N7Oj8VXvFxv9nQ6K.C8Sxz7F8K8Kne', 'teacher', NOW()),
-('Student Demo', 'student@gmail.com', '$2b$12$KIXxPfxrHYczfIVc0rK5FO8N7Oj8VXvFxv9nQ6K.C8Sxz7F8K8Kne', 'student', NOW());
+('Admin User', 'admin@gmail.com', '$2b$12$2y.vcfdipTcYFyPjISGdnOKBXZToUHbYoMZy9/9iUcdGZdPFFwbrq', 'admin', NOW()),
+('Teacher One', 'teacher1@gmail.com', '$2b$12$2y.vcfdipTcYFyPjISGdnOKBXZToUHbYoMZy9/9iUcdGZdPFFwbrq', 'teacher', NOW()),
+('Teacher Two', 'teacher2@gmail.com', '$2b$12$2y.vcfdipTcYFyPjISGdnOKBXZToUHbYoMZy9/9iUcdGZdPFFwbrq', 'teacher', NOW()),
+('Teacher Three', 'teacher3@gmail.com', '$2b$12$2y.vcfdipTcYFyPjISGdnOKBXZToUHbYoMZy9/9iUcdGZdPFFwbrq', 'teacher', NOW()),
+('Student Demo', 'student@gmail.com', '$2b$12$2y.vcfdipTcYFyPjISGdnOKBXZToUHbYoMZy9/9iUcdGZdPFFwbrq', 'student', NOW());
 
 -- Insert sample courses
 INSERT INTO courses (id, title, description, level, created_by) VALUES
