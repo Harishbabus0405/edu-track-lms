@@ -356,19 +356,7 @@ function initLoginPage() {
             return;
         }
 
-        // ADMIN LOGIN (hardcoded)
-        if (role === "admin") {
-            if (email === "admin@gmail.com" && password === "admin123") {
-                setUser("Admin", "admin", "admin@gmail.com");
-                window.location.href = "admin-dashboard.html";
-                return;
-            } else {
-                alert("Invalid admin credentials.");
-                return;
-            }
-        }
-
-        // STUDENT / TEACHER LOGIN (via Flask backend)
+        // ALL LOGINS (via Flask backend) - including admin
         try {
             const res = await fetch(`${API_BASE_URL}/api/auth/login`, {
                 method: "POST",
@@ -386,7 +374,10 @@ function initLoginPage() {
             // Save user session
             setUser(data.user.name, data.user.role, data.user.email);
 
-            if (data.user.role === "student") {
+            // Redirect based on role
+            if (data.user.role === "admin") {
+                window.location.href = "admin-dashboard.html";
+            } else if (data.user.role === "student") {
                 window.location.href = "student-dashboard.html";
             } else if (data.user.role === "teacher") {
                 window.location.href = "teacher-dashboard.html";
